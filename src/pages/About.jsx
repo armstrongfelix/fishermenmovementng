@@ -3,8 +3,6 @@ import {
   BookOpen,
   CheckCircle2,
   GraduationCap,
-  MapPin,
-  Sparkles,
   Users,
 } from "lucide-react";
 import PageHero from "../components/common/PageHero";
@@ -57,34 +55,6 @@ export default function About() {
             </div>
           </div>
 
-          <aside className="about-fact-card">
-            <span className="about-fact-card__icon">
-              <Sparkles size={22} aria-hidden="true" />
-            </span>
-            <h3>At a glance</h3>
-            <dl>
-              <div>
-                <dt>Location</dt>
-                <dd>Aba, Abia State</dd>
-              </div>
-              <div>
-                <dt>Pilot window</dt>
-                <dd>Oct – Dec 2026</dd>
-              </div>
-              <div>
-                <dt>Target reach</dt>
-                <dd>5,000+ students</dd>
-              </div>
-              <div>
-                <dt>Audience</dt>
-                <dd>SS1 – SS3 students</dd>
-              </div>
-            </dl>
-            <p>
-              <MapPin size={15} aria-hidden="true" />
-              Expanding across Abia State and beyond
-            </p>
-          </aside>
         </div>
       </section>
 
