@@ -25,7 +25,7 @@ export default function Navbar() {
       <div className="container navbar">
         <Link to="/" className="brand" aria-label={`${SITE.name} home`}>
           <img
-            src="/assets/logo.svg"
+            src="/assets/fishermenMovementLogo.png"
             alt=""
             className="brand__mark"
             width="44"
@@ -53,7 +53,7 @@ export default function Navbar() {
         </nav>
 
         <div className="navbar__actions">
-          <Button to="/contact" size="sm">
+          <Button to="/contact" size="sm" className="navbar__cta">
             Partner with us
             <ArrowRight size={16} aria-hidden="true" />
           </Button>
@@ -90,7 +90,7 @@ export default function Navbar() {
           </nav>
           <Button
             to="/contact"
-            className="mobile-nav__cta"
+            className="mobile-nav__cta navbar__cta"
             onClick={() => setOpen(false)}
           >
             <ShieldCheck size={18} aria-hidden="true" />

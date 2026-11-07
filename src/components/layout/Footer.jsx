@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="footer-brand">
             <Link to="/" className="brand brand--footer">
               <img
-                src="/assets/logo.svg"
+                src="/assets/fishermenMovementLogo.png"
                 alt=""
                 className="brand__mark"
                 width="44"

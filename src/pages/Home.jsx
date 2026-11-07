@@ -4,7 +4,6 @@ import {
   CalendarDays,
   CheckCircle2,
   Mail,
-  MapPin,
   ShieldAlert,
   ShieldCheck,
   Sparkles,
@@ -13,7 +12,7 @@ import {
 import Button from "../components/common/Button";
 import SectionHeading from "../components/common/SectionHeading";
 import TeamMember from "../components/specific/TeamMember";
-import { FOCUS_AREAS, SITE } from "../data/siteData";
+import { FOCUS_AREAS } from "../data/siteData";
 import { heroStats } from "../data/statsData";
 import { modules } from "../data/modulesData";
 import { team } from "../data/teamData";
@@ -73,36 +72,6 @@ export default function Home() {
             </div>
           </div>
 
-          <aside className="hero-card" aria-label="Pilot phase snapshot">
-            <div className="hero-card__status">
-              <span className="pulse-dot" aria-hidden="true" />
-              Pilot phase
-            </div>
-            <h2>Oct – Dec 2026</h2>
-            <p className="hero-card__location">
-              <MapPin size={15} aria-hidden="true" />
-              {SITE.location}
-            </p>
-            <div className="hero-card__divider" />
-            <div className="hero-card__rows">
-              <div>
-                <span>Students targeted</span>
-                <strong>5,000+</strong>
-              </div>
-              <div>
-                <span>Learning modules</span>
-                <strong>3</strong>
-              </div>
-              <div>
-                <span>Cost to students</span>
-                <strong>Free</strong>
-              </div>
-            </div>
-            <Link to="/impact" className="hero-card__link">
-              See the impact plan
-              <ArrowRight size={15} aria-hidden="true" />
-            </Link>
-          </aside>
         </div>
       </section>
 
@@ -230,7 +199,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="The people behind it"
               title="Meet the founding voices"
-              description="Cybersecurity students, developers, and mentors from RAD5 Tech Hub driving digital safety awareness across Aba and beyond."
+              description="Cybersecurity specialist, Software Developers, and mentors from RAD5 Tech Hub driving digital safety awareness across Aba and beyond."
             />
             <Button to="/about" variant="secondary">
               Meet the team

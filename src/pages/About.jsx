@@ -202,7 +202,7 @@ export default function About() {
         <div className="container">
           <SectionHeading
             eyebrow="The founding team"
-            title="Cybersecurity students and builders from RAD5"
+            title="Cybersecurity Specialist and Software Developers"
             description="A volunteer team of practitioners, developers, and mentors who believe digital safety is a basic skill."
             align="center"
           />

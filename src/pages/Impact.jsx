@@ -194,17 +194,6 @@ export default function Impact() {
                 role="img"
                 aria-label="Cumulative student reach: 1,666 in October, 3,332 in November, and 5,000 in December."
               >
-                <defs>
-                  <linearGradient id="impactArea" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#2563eb" stopOpacity="0.35" />
-                    <stop offset="100%" stopColor="#2563eb" stopOpacity="0.02" />
-                  </linearGradient>
-                  <linearGradient id="impactLine" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="#2563eb" />
-                    <stop offset="100%" stopColor="#14b8a6" />
-                  </linearGradient>
-                </defs>
-
                 {gridLines.map((line) => {
                   const y =
                     chart.top + (1 - line / chart.max) * plotHeight;
@@ -215,7 +204,7 @@ export default function Impact() {
                         x2={chart.width - chart.right}
                         y1={y}
                         y2={y}
-                        stroke="#e2e8f0"
+                        stroke="#bfdbfe"
                         strokeDasharray="4 6"
                       />
                       <text
@@ -231,11 +220,11 @@ export default function Impact() {
                   );
                 })}
 
-                <path d={areaPath} fill="url(#impactArea)" />
+                <path d={areaPath} fill="#2563eb" fillOpacity="0.16" />
                 <path
                   d={linePath}
                   fill="none"
-                  stroke="url(#impactLine)"
+                  stroke="#2563eb"
                   strokeWidth="3.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"

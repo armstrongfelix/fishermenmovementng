@@ -152,21 +152,6 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="contact-parent">
-              <span className="contact-parent__label">An initiative under</span>
-              <a
-                href={SITE.parent.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {SITE.parent.name}
-                <ArrowRight size={15} aria-hidden="true" />
-              </a>
-              <p>
-                A technology hub in Aba supporting practical digital skills and
-                innovation across Abia State.
-              </p>
-            </div>
           </aside>
         </div>
       </section>
