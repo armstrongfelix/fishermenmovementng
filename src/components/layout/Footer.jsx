@@ -29,15 +29,7 @@ export default function Footer() {
               </span>
             </Link>
             <p>{SITE.description}</p>
-            <a
-              className="footer-parent"
-              href={SITE.parent.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Powered by {SITE.parent.name}
-              <ArrowUpRight size={14} aria-hidden="true" />
-            </a>
+           
             <div className="footer-socials">
               <a
                 href={SITE.socials.instagram}

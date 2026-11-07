@@ -33,7 +33,7 @@ export default function Navbar() {
           />
           <span className="brand__text">
             <strong>{SITE.name}</strong>
-            <small>An initiative under RAD5</small>
+            
           </span>
         </Link>
 
