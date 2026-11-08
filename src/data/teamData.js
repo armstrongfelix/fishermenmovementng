@@ -11,6 +11,7 @@ export const team = [
     bio: "Cyber Security Intern at RAD5 Tech Hub | Web Developer.",
     linkedin:
       "https://www.linkedin.com/in/ikoh-jahswill?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    portfolio: "https://Ikohjahswillportfolio.lovable.app",
     accent: "blue",
     image: jahswillDavidPicture,
   },
@@ -73,6 +74,7 @@ export const team = [
     bio: "Cyber Security student at RAD5 Tech Hub.",
     linkedin:
       "https://www.linkedin.com/in/wisdom-amarachi-6457063a7?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    portfolio: "https://cybersecurity-portfo-0o8w.bolt.host/",
     accent: "teal",
     image: amarachiWisdomPicture,
   },
