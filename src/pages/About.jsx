@@ -54,10 +54,6 @@ export default function About() {
               ))}
             </div>
           </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> images
         </div>
       </section>
 
