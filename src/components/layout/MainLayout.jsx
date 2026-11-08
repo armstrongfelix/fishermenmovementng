@@ -26,12 +26,15 @@ export default function MainLayout() {
   }, [pathname]);
 
   return (
-    <div className="app-shell">
-      <a className="skip-link" href="#main-content">
+    <div className="flex min-h-screen flex-col">
+      <a
+        className="absolute left-6 top-[-80px] z-[300] rounded-[10px] bg-ink px-[18px] py-3 text-sm font-semibold text-white focus:top-3"
+        href="#main-content"
+      >
         Skip to content
       </a>
       <Navbar />
-      <main id="main-content" className="site-main">
+      <main id="main-content" className="flex-1">
         <Outlet />
       </main>
       <Footer />

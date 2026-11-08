@@ -59,7 +59,6 @@ export default function StatCard({
   label,
   detail,
   icon: Icon,
-  accent = "blue",
   className = "",
 }) {
   const [ref, display] = useCountUp(value);
@@ -67,20 +66,22 @@ export default function StatCard({
   return (
     <article
       ref={ref}
-      className={`stat-card stat-card--${accent} ${className}`.trim()}
+      className={`relative overflow-hidden rounded-card border border-line bg-surface p-[26px] shadow-soft after:absolute after:-right-10 after:-top-10 after:h-[120px] after:w-[120px] after:rounded-full after:bg-[radial-gradient(circle,rgba(37,99,235,0.09),transparent_70%)] after:content-[''] ${className}`.trim()}
     >
       {Icon ? (
-        <span className="stat-card__icon">
+        <span className="mb-[17px] inline-flex h-[42px] w-[42px] items-center justify-center rounded-xl bg-primary/[0.08] text-primary">
           <Icon size={22} strokeWidth={1.9} aria-hidden="true" />
         </span>
       ) : null}
-      <div className="stat-card__value">
+      <div className="font-display text-[clamp(2rem,3vw,2.55rem)] font-bold leading-[1.05] tracking-[-0.035em] text-primary-dark">
         {prefix}
         {display.toLocaleString()}
         {suffix}
       </div>
-      <div className="stat-card__label">{label}</div>
-      {detail ? <p className="stat-card__detail">{detail}</p> : null}
+      <div className="mt-2 text-[13px] font-semibold text-ink">{label}</div>
+      {detail ? (
+        <p className="mt-[5px] text-xs leading-[1.5] text-muted">{detail}</p>
+      ) : null}
     </article>
   );
 }

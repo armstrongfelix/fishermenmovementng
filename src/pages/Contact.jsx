@@ -1,33 +1,32 @@
 import {
-  ArrowRight,
-  Building2,
-  Clock3,
-  GraduationCap,
-  Mail,
-  MapPin,
-  MessageSquare,
-  Phone,
-  Users,
-} from "lucide-react";
-import {
-  InstagramIcon,
-  LinkedinIcon,
-} from "../components/common/BrandIcons";
+  LuArrowRight,
+  LuBuilding2,
+  LuClock3,
+  LuGraduationCap,
+  LuMail,
+  LuMapPin,
+  LuMessageSquare,
+  LuPhone,
+  LuUsers,
+} from "react-icons/lu";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import PageHero from "../components/common/PageHero";
 import SectionHeading from "../components/common/SectionHeading";
 import Button from "../components/common/Button";
+import Container from "../components/common/Container";
 import ContactForm from "../components/specific/ContactForm";
 import { SITE } from "../data/siteData";
 
 const contactDetails = [
   {
-    icon: Mail,
+    icon: LuMail,
     label: "Email",
     value: SITE.email,
     href: `mailto:${SITE.email}`,
   },
   {
-    icon: Phone,
+    icon: LuPhone,
     label: "Phone",
     value: SITE.phone,
     href: `tel:${SITE.phone.replace(/\s/g, "")}`,
@@ -35,12 +34,12 @@ const contactDetails = [
     secondaryHref: `tel:${SITE.phoneAlt.replace(/\s/g, "")}`,
   },
   {
-    icon: MapPin,
+    icon: LuMapPin,
     label: "Based in",
     value: SITE.address,
   },
   {
-    icon: Clock3,
+    icon: LuClock3,
     label: "Response time",
     value: "Within 48 hours",
   },
@@ -48,26 +47,29 @@ const contactDetails = [
 
 const enquiryTypes = [
   {
-    icon: GraduationCap,
+    icon: LuGraduationCap,
     title: "Schools & educators",
     description: "Host a free cyber safety session for your students.",
   },
   {
-    icon: Building2,
+    icon: LuBuilding2,
     title: "Partners & sponsors",
     description: "Support the pilot or collaborate on a programme.",
   },
   {
-    icon: Users,
+    icon: LuUsers,
     title: "Volunteers",
     description: "Share your cybersecurity or training experience.",
   },
   {
-    icon: MessageSquare,
+    icon: LuMessageSquare,
     title: "Media",
     description: "Request an interview, photos, or programme details.",
   },
 ];
+
+const detailValueClass =
+  "mt-0.5 text-[12.5px] font-medium text-ink [overflow-wrap:anywhere]";
 
 export default function Contact() {
   return (
@@ -80,42 +82,48 @@ export default function Contact() {
         compact
       />
 
-      <section className="section">
-        <div className="container contact-grid">
-          <div className="contact-form-panel">
+      <section className="py-16 sm:py-[76px] md:py-24">
+        <Container className="grid grid-cols-1 items-start gap-11 lg:grid-cols-[minmax(0,1.35fr)_minmax(310px,0.65fr)]">
+          <div className="rounded-panel border border-line bg-surface p-9 shadow-card max-sm:p-6">
             <SectionHeading
               eyebrow="Send a message"
               title="Tell us how you would like to get involved"
               description="Fill in the form and the team will get back to you within two working days."
+              className="mb-7!"
             />
             <ContactForm />
           </div>
 
-          <aside className="contact-sidebar">
-            <div className="contact-details">
-              <h3>Reach us directly</h3>
-              <ul>
+          <aside className="grid gap-4">
+            <div className="rounded-card border border-line bg-surface p-[26px]">
+              <h3 className="mb-[18px] text-base">Reach us directly</h3>
+              <ul className="grid gap-[18px]">
                 {contactDetails.map((detail) => {
                   const Icon = detail.icon;
                   return (
-                    <li key={detail.label}>
-                      <span className="contact-details__icon">
+                    <li key={detail.label} className="flex items-start gap-3">
+                      <span className="inline-flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[10px] bg-primary/[0.07] text-primary">
                         <Icon size={18} aria-hidden="true" />
                       </span>
-                      <div>
-                        <span className="contact-details__label">
+                      <div className="flex min-w-0 flex-col">
+                        <span className="text-[9.5px] font-bold uppercase tracking-[0.12em] text-muted">
                           {detail.label}
                         </span>
                         {detail.href ? (
-                          <a href={detail.href}>{detail.value}</a>
+                          <a
+                            href={detail.href}
+                            className={`${detailValueClass} hover:text-primary`}
+                          >
+                            {detail.value}
+                          </a>
                         ) : (
-                          <span className="contact-details__value">
+                          <span className={detailValueClass}>
                             {detail.value}
                           </span>
                         )}
                         {detail.secondary ? (
                           <a
-                            className="contact-details__secondary"
+                            className="mt-0.5 text-[11.5px] font-normal text-muted [overflow-wrap:anywhere]"
                             href={detail.secondaryHref}
                           >
                             {detail.secondary}
@@ -128,16 +136,19 @@ export default function Contact() {
               </ul>
             </div>
 
-            <div className="contact-socials">
-              <h3>Follow the movement</h3>
-              <div>
+            <div className="rounded-card border border-line bg-surface p-[26px]">
+              <h3 className="mb-[18px] text-base">Follow the movement</h3>
+              <div className="flex flex-wrap gap-2">
                 <a
                   href={SITE.socials.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Fishermen Movement on Instagram"
+                  className="inline-flex items-center gap-[7px] rounded-full border border-line px-[13px] py-2 text-[11.5px] font-medium text-ink-soft transition-[border-color,color] duration-200 hover:border-primary/35 hover:text-primary-dark"
                 >
-                  <InstagramIcon size={18} />
+                  <span className="inline-flex text-[18px]">
+                    <InstagramIcon fontSize="inherit" />
+                  </span>
                   Instagram
                 </a>
                 <a
@@ -145,54 +156,61 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Fishermen Movement on LinkedIn"
+                  className="inline-flex items-center gap-[7px] rounded-full border border-line px-[13px] py-2 text-[11.5px] font-medium text-ink-soft transition-[border-color,color] duration-200 hover:border-primary/35 hover:text-primary-dark"
                 >
-                  <LinkedinIcon size={18} />
+                  <span className="inline-flex text-[18px]">
+                    <LinkedInIcon fontSize="inherit" />
+                  </span>
                   LinkedIn
                 </a>
               </div>
             </div>
-
           </aside>
-        </div>
+        </Container>
       </section>
 
-      <section className="section section--tint">
-        <div className="container">
+      <section className="border-y border-line bg-surface-alt py-16 sm:py-[76px] md:py-24">
+        <Container>
           <SectionHeading
             eyebrow="How we can help"
             title="Start with the conversation that fits you"
             description="Choose the route that best describes you. We will point you to the right next step."
             align="center"
           />
-          <div className="enquiry-grid">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {enquiryTypes.map((type) => {
               const Icon = type.icon;
               return (
-                <article className="enquiry-card" key={type.title}>
-                  <span className="enquiry-card__icon">
+                <article
+                  className="rounded-card border border-line bg-surface p-6"
+                  key={type.title}
+                >
+                  <span className="mb-[18px] inline-flex h-[46px] w-[46px] items-center justify-center rounded-[13px] bg-primary/[0.08] text-primary">
                     <Icon size={21} aria-hidden="true" />
                   </span>
-                  <h3>{type.title}</h3>
-                  <p>{type.description}</p>
+                  <h3 className="text-[15px]">{type.title}</h3>
+                  <p className="mt-[9px] text-[13.5px] leading-[1.6] text-muted">
+                    {type.description}
+                  </p>
                 </article>
               );
             })}
           </div>
 
-          <div className="contact-bottom-cta">
+          <div className="mt-[26px] flex items-center justify-between gap-6 rounded-card border border-line bg-surface px-[30px] py-[26px] max-sm:flex-col max-sm:items-start">
             <div>
-              <h3>Prefer to invite us directly?</h3>
-              <p>
+              <h3 className="text-[17px]">Prefer to invite us directly?</h3>
+              <p className="mt-1 text-[12.5px] text-muted">
                 Send your school or organisation name and preferred dates, and
                 we will follow up with availability.
               </p>
             </div>
-            <Button href={`mailto:${SITE.email}`}>
+            <Button href={`mailto:${SITE.email}`} className="max-sm:w-full">
               Email the team
-              <ArrowRight size={16} aria-hidden="true" />
+              <LuArrowRight size={16} aria-hidden="true" />
             </Button>
           </div>
-        </div>
+        </Container>
       </section>
     </>
   );
