@@ -3,6 +3,7 @@ import ernestChidiPicture from "../assets/ErnestChidiPicture.jpg";
 import kingsleyPrincePicture from "../assets/KingsleyPrincePicture.jpg";
 import amarachiWisdomPicture from "../assets/AmarachiWisdomPicture.jpg";
 import felixArmstrongEzeudoPicture from "../assets/FelixArmstrongEzeudoPicture.jpg";
+import duruArinzePicture from "../assets/DuruArinzePicture.png";
 
 export const team = [
   {
@@ -11,6 +12,7 @@ export const team = [
     bio: "Cyber Security Intern at RAD5 Tech Hub | Web Developer.",
     linkedin:
       "https://www.linkedin.com/in/ikoh-jahswill?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    portfolio: "https://Ikohjahswillportfolio.lovable.app",
     accent: "blue",
     image: jahswillDavidPicture,
   },
@@ -64,6 +66,7 @@ export const team = [
     bio: "Cyber Security Intern at RAD5 Tech Hub.",
     linkedin:
       "https://www.linkedin.com/in/princekingsley?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    portfolio: "https://Princeking.lovable.app",
     accent: "blue",
     image: kingsleyPrincePicture,
   },
@@ -73,6 +76,7 @@ export const team = [
     bio: "Cyber Security student at RAD5 Tech Hub.",
     linkedin:
       "https://www.linkedin.com/in/wisdom-amarachi-6457063a7?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    portfolio: "https://cybersecurity-portfo-0o8w.bolt.host/",
     accent: "teal",
     image: amarachiWisdomPicture,
   },
@@ -83,5 +87,14 @@ export const team = [
     linkedin:
       "https://www.linkedin.com/in/edward-jose-maria-3b47293a9?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     accent: "cyan",
+  },
+  {
+    name: "Duru Arinze",
+    role: "Cyber Security",
+    bio: "Cyber Security student at RAD5 Tech Hub.",
+    linkedin:
+      "https://www.linkedin.com/in/duru-arinze-40718b3a8?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    accent: "teal",
+    image: duruArinzePicture,
   },
 ];

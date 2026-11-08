@@ -1257,9 +1257,13 @@ h4 {
 /* About */
 
 .about-intro {
+<<<<<<< HEAD
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: start;
+=======
+  display: block;
+>>>>>>> images
 }
 
 .about-intro .section-heading {
