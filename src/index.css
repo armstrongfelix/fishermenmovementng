@@ -359,7 +359,7 @@ h4 {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(247, 250, 252, 0.82);
+  background: var(--surface);
   border-bottom: 1px solid transparent;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -370,7 +370,7 @@ h4 {
 }
 
 .site-header.is-scrolled {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--surface);
   border-bottom-color: var(--line);
   box-shadow: 0 12px 30px -24px rgba(11, 27, 51, 0.45);
 }
