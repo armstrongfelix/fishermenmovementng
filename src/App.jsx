@@ -8,6 +8,8 @@ import Impact from "./pages/Impact";
 import Gallery from "./pages/Gallery";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
+import Admin from "./pages/Admin";
+import Partners from "./pages/Partners";
 import Button from "./components/common/Button";
 import Container from "./components/common/Container";
 import Eyebrow from "./components/common/Eyebrow";
@@ -53,6 +55,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="admin" element={<Admin />} />
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
@@ -60,6 +63,7 @@ export default function App() {
           <Route path="impact" element={<Impact />} />
           <Route path="gallery" element={<Gallery />} />
           <Route path="news" element={<News />} />
+          <Route path="partners" element={<Partners />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>

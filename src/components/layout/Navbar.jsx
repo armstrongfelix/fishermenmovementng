@@ -49,14 +49,14 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Primary navigation">
           {NAV_LINKS.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               end={link.to === "/"}
               className={({ isActive }) =>
-                `rounded-full px-3 py-2 text-[13.5px] transition-[background,color] duration-200 ${
+                `rounded-full px-2.5 py-2 text-[13px] transition-[background,color] duration-200 xl:px-3 xl:text-[13.5px] ${
                   isActive
                     ? "bg-primary/10 font-semibold text-primary-dark"
                     : "font-medium text-ink-soft hover:bg-primary/[0.07] hover:text-primary-dark"
@@ -68,7 +68,11 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2.5 lg:flex">
+        <div className="hidden items-center gap-2.5 xl:flex">
+          <Button to="/admin" size="sm" variant="secondary">
+            <LuShieldCheck size={16} aria-hidden="true" />
+            Admin
+          </Button>
           <Button to="/contact" size="sm" variant="nav">
             Partner with us
             <LuArrowRight size={16} aria-hidden="true" />
@@ -77,7 +81,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-xl border border-line-strong bg-white text-ink lg:hidden"
+          className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-xl border border-line-strong bg-white text-ink xl:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-navigation"
@@ -89,7 +93,7 @@ export default function Navbar() {
 
       {open ? (
         <div
-          className="flex flex-col gap-2.5 border-b border-line bg-white/[0.98] px-6 pb-[26px] pt-2.5 shadow-[0_24px_40px_-28px_rgba(11,27,51,0.5)] lg:hidden"
+          className="flex flex-col gap-2.5 border-b border-line bg-white/[0.98] px-6 pb-[26px] pt-2.5 shadow-[0_24px_40px_-28px_rgba(11,27,51,0.5)] xl:hidden"
           id="mobile-navigation"
         >
           <nav className="grid gap-0.5" aria-label="Mobile navigation">
@@ -119,6 +123,15 @@ export default function Navbar() {
           >
             <LuShieldCheck size={18} aria-hidden="true" />
             Partner with us
+          </Button>
+          <Button
+            to="/admin"
+            variant="secondary"
+            className="w-full"
+            onClick={() => setOpen(false)}
+          >
+            <LuShieldCheck size={18} aria-hidden="true" />
+            Admin
           </Button>
         </div>
       ) : null}

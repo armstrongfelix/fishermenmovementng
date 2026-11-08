@@ -1,0 +1,36 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email == 'armstrongfelix4@gmail.com';
+    }
+
+    match /involvementRequests/{requestId} {
+      allow create: if request.resource.data.keys().hasOnly([
+        'fullName', 'email', 'subject', 'message', 'status', 'createdAt'
+      ])
+      && request.resource.data.fullName is string
+      && request.resource.data.fullName.size() > 0
+      && request.resource.data.fullName.size() <= 120
+      && request.resource.data.email is string
+      && request.resource.data.email.matches('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$')
+      && request.resource.data.email.size() <= 160
+      && request.resource.data.subject is string
+      && request.resource.data.subject in ['school-visit', 'partnership', 'sponsor', 'volunteer']
+      && request.resource.data.message is string
+      && request.resource.data.message.size() >= 20
+      && request.resource.data.message.size() <= 5000
+      && request.resource.data.status == 'new'
+      && request.resource.data.createdAt == request.time;
+
+      allow read: if isAdmin();
+      allow update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

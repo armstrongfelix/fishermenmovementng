@@ -1,6 +1,24 @@
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { LuCircleCheck, LuLoaderCircle, LuSend } from "react-icons/lu";
 import useForm from "../../hooks/useForm";
 import Button from "../common/Button";
+import { db } from "../../firebase";
+import { SUBJECT_OPTIONS } from "../../data/involvementData";
+
+const INVOLVEMENT_COLLECTION = "involvementRequests";
+
+function friendlyError(error) {
+  switch (error?.code) {
+    case "permission-denied":
+      return "We could not send your message right now. Please try again or email the team directly.";
+    case "unavailable":
+      return "You appear to be offline. Check your connection and try again.";
+    case "resource-exhausted":
+      return "We are receiving a lot of messages right now. Please try again in a few minutes.";
+    default:
+      return "Something went wrong while sending your message. Please try again or email the team directly.";
+  }
+}
 
 const initialValues = {
   fullName: "",
@@ -20,7 +38,7 @@ function validate(values) {
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
     errors.email = "Please enter a valid email address.";
   }
-  if (!values.subject.trim()) errors.subject = "Please add a subject.";
+  if (!values.subject.trim()) errors.subject = "Please select a subject.";
   if (!values.message.trim()) {
     errors.message = "Please write a message.";
   } else if (values.message.trim().length < 20) {
@@ -32,8 +50,19 @@ function validate(values) {
 export default function ContactForm() {
   const form = useForm({ initialValues, validate });
 
-  const submit = form.handleSubmit(async () => {
-    await new Promise((resolve) => setTimeout(resolve, 700));
+  const submit = form.handleSubmit(async (values) => {
+    try {
+      await addDoc(collection(db, INVOLVEMENT_COLLECTION), {
+        fullName: values.fullName.trim(),
+        email: values.email.trim().toLowerCase(),
+        subject: values.subject.trim(),
+        message: values.message.trim(),
+        status: "new",
+        createdAt: serverTimestamp(),
+      });
+    } catch (error) {
+      throw new Error(friendlyError(error), { cause: error });
+    }
   });
 
   if (form.status === "success") {
@@ -45,14 +74,13 @@ export default function ContactForm() {
         <span className="mb-4 inline-flex h-[58px] w-[58px] items-center justify-center rounded-full bg-success/10 text-success">
           <LuCircleCheck size={30} aria-hidden="true" />
         </span>
-        <h3 className="text-[22px]">Message ready to send</h3>
+        <h3 className="text-[22px]">Message sent</h3>
         <p className="mb-[22px] mt-[9px] max-w-[480px] text-[13.5px] leading-[1.7] text-muted">
-          Thank you, {form.values.fullName.split(" ")[0]}. This demo form is
-          front-end only, so nothing was sent to a server. Connect your email
-          service or backend to start receiving messages.
+          Thank you, {form.values.fullName.split(" ")[0]}. Your message has been
+          sent and the team will get back to you within two working days.
         </p>
         <Button type="button" variant="secondary" onClick={form.reset}>
-          Write another message
+          Send another message
         </Button>
       </div>
     );
@@ -114,18 +142,23 @@ export default function ContactForm() {
         <label htmlFor="subject" className="text-xs font-semibold text-ink">
           Subject
         </label>
-        <input
-          className={fieldClass}
+        <select
+          className={`${fieldClass} cursor-pointer`}
           id="subject"
           name="subject"
-          type="text"
-          placeholder="School visit, partnership, media inquiry..."
           value={form.values.subject}
           onChange={form.handleChange}
           onBlur={form.handleBlur}
           aria-invalid={Boolean(form.errors.subject)}
           aria-describedby={form.errors.subject ? "subject-error" : undefined}
-        />
+        >
+          <option value="">Select a subject</option>
+          {SUBJECT_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
         {form.errors.subject ? (
           <span className="text-[11.5px] text-danger" id="subject-error">
             {form.errors.subject}
@@ -189,8 +222,7 @@ export default function ContactForm() {
       </Button>
 
       <p className="text-center text-[11px] leading-[1.55] text-muted">
-        We only use your details to respond to your message. This front-end demo
-        does not store or transmit form data.
+        We only use your details to respond to your message.
       </p>
     </form>
   );
