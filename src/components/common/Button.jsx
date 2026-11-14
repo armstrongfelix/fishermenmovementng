@@ -5,8 +5,14 @@ const variants = {
     "border-transparent bg-primary text-white shadow-[0_14px_30px_-14px_rgba(37,99,235,0.7)] hover:shadow-[0_20px_38px_-14px_rgba(37,99,235,0.8)]",
   secondary:
     "border-line-strong bg-surface text-ink hover:border-primary/45 hover:text-primary-dark hover:shadow-soft",
+  "secondary-primary":
+    "border-line-strong bg-surface text-primary hover:border-primary/45 hover:text-primary-dark hover:shadow-soft",
+  "secondary-success":
+    "border-line-strong bg-surface text-success hover:border-success/45 hover:text-success hover:shadow-soft",
   ghost:
     "border-transparent bg-transparent text-primary hover:bg-primary/[0.08]",
+  "ghost-danger":
+    "border-transparent bg-transparent text-danger hover:bg-danger/[0.08]",
   light:
     "border-transparent bg-white text-ink shadow-[0_18px_36px_-18px_rgba(0,0,0,0.5)] hover:bg-[#f1f7ff]",
   "ghost-light":

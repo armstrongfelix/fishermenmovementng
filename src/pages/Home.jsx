@@ -6,7 +6,6 @@ import {
   LuMail,
   LuShieldAlert,
   LuShieldCheck,
-  LuSparkles,
   LuUsers,
 } from "react-icons/lu";
 import Button from "../components/common/Button";
@@ -60,10 +59,6 @@ export default function Home() {
 
         <Container className="relative z-[2] grid min-h-[min(760px,calc(100vh-76px))] grid-cols-1 items-center pb-[74px] pt-16 lg:pb-[102px] lg:pt-[86px]">
           <div className="animate-fade-up">
-            <span className="mb-[26px] inline-flex items-center gap-2 rounded-full border border-white/[0.22] bg-white/[0.08] px-3.5 py-[7px] text-[11px] font-semibold uppercase tracking-[0.16em] text-white/[0.88] backdrop-blur-[10px]">
-              <LuSparkles size={14} aria-hidden="true" className="text-cyan-300" />
-              Aba, Abia State · Nigeria
-            </span>
             <h1 className="max-w-[780px] text-[clamp(2.35rem,11vw,3.1rem)] leading-[1.02] tracking-[-0.035em] text-white sm:text-[clamp(2.65rem,5.4vw,4.65rem)]">
               Protecting young minds
               <span className="block text-cyan-300"> in the digital age</span>
@@ -81,18 +76,6 @@ export default function Home() {
               <Button to="/contact" variant="light" size="lg">
                 Partner with us
               </Button>
-            </div>
-            <div className="mt-[38px] flex max-w-[560px] items-center gap-3 border-t border-white/[0.16] pt-6 max-sm:items-start">
-              <span className="inline-flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[11px] bg-cyan-300/[0.12] text-cyan-300">
-                <LuShieldCheck size={18} aria-hidden="true" />
-              </span>
-              <p className="text-[13px] leading-[1.55] text-white/[0.67]">
-                An initiative under{" "}
-                <strong className="font-semibold text-white/[0.92]">
-                  RAD5 Tech Hub
-                </strong>{" "}
-                — built by cybersecurity students and practitioners in Aba.
-              </p>
             </div>
           </div>
         </Container>

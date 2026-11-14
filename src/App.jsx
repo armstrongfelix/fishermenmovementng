@@ -9,6 +9,7 @@ import Gallery from "./pages/Gallery";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
+import AdminRegister from "./pages/AdminRegister";
 import Partners from "./pages/Partners";
 import Button from "./components/common/Button";
 import Container from "./components/common/Container";
@@ -56,6 +57,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="admin" element={<Admin />} />
+        <Route path="admin/register" element={<AdminRegister />} />
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
